@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sondages</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'appli/sondage.css' %}">
+</head>
+<body>
+    <nav>
+        {% if user.is_authenticated %}
+            <a href="{% url 'liste_sondages' %}">Liste des sondages</a>
+            <a href="{% url 'deconnexion' %}">Déconnexion</a>
+            <a href="{% url 'modifier_mdp_get' %}">Modifier mon mot de de passe</a>
+            [ {{ user }} ]
+        {% else %}
+            <a href="{% url 'connexion_get' %}">Connexion</a>
+            <a href="{% url 'inscription_get' %}">Inscription</a>
+        {% endif %}
+    </nav>
+    <main>
+        {% block body %}
+            *** block body par défaut ***
+        {% endblock %}
+    </main>
+    <footer>
+     <br>   Copyright 2020
+    </footer>
+</body>
+</html>

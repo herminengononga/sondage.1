@@ -1,0 +1,14 @@
+{% extends 'TEMPLATE.html' %}
+{% block body %}
+    <h1>Connexion</h1>
+    <form action="{% url 'connexion_post' %}" method="post">
+        <label>Pseudo</label>
+        <input name="pseudo">
+        <br>
+        <label>Mot de passe</label>
+        <input name="mdp" type="password">
+        <br>
+        <input type="submit" value="Connexion">
+        {% csrf_token %}
+    </form>
+{% endblock %}

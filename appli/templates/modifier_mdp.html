@@ -1,0 +1,12 @@
+{% extends 'TEMPLATE.html' %}
+{% block body %}
+    <h1>Modifiez votre mot de passe</h1>
+    <form action="{% url 'modifier_mdp_post' %}" method="post">
+        <br>
+        <label>Mot-de-passe</label>
+        <input name="mdp" type="password">
+        <br>
+        <input type="submit" value="Connexion">
+        {% csrf_token %}
+    </form>
+{% endblock %}

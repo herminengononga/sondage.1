@@ -1,0 +1,17 @@
+{% extends 'TEMPLATE.html' %}
+{% block body %}
+    <h1>Je m'inscris !</h1>
+    <form action="{% url 'inscription_post' %}" method="post">
+        <label>Pseudo</label>
+        <input name="pseudo">
+        <br>
+        <label>Mail</label>
+        <input name="mail">
+        <br>
+        <label>Mot de passe</label>
+        <input name="mdp" type="password">
+        <br>
+        <input type="submit" value="Inscription">
+        {% csrf_token %}
+    </form>
+{% endblock %}

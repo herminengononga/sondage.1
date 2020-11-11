@@ -1,0 +1,26 @@
+{% extends 'TEMPLATE.html' %}
+{% block body %}
+    <h1>{{ question.intitule }}</h1>
+    <form action="{% url 'enregistrer_reponse' %}" method="post">
+        <input type="radio" name="choix" value="1">
+        <label>{{ question.proposition1 }}</label>
+        <br>
+        <input type="radio" name="choix" value="2">
+        <label>{{ question.proposition2 }}</label>
+        <br>
+    {% if question.proposition3 %}
+        <input type="radio" name="choix" value="3">
+        <label>{{ question.proposition3 }}</label>
+        <br>
+    {% endif %}
+    {% if question.proposition4 %}
+        <input type="radio" name="choix" value="4">
+        <label>{{ question.proposition4 }}</label>
+        <br>
+    {% endif %}
+        <br>
+        <input type="hidden" name="id_question" value="{{ question.id }}">
+        <input type="submit" value="Question suivante">
+         {% csrf_token %}
+    </form>
+{% endblock %}

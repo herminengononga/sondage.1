@@ -1,0 +1,9 @@
+body{
+    font-family: cursive;
+}
+
+input[type=submit], select, input[type=text], input[type=password]{
+    border-radius: 5px;
+    background-color: yellow;
+    padding: 10px;
+}

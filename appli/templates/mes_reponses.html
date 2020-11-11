@@ -1,0 +1,27 @@
+{% extends 'TEMPLATE.html' %}
+{% block body %}
+    <h1>Vos réponses</h1>
+
+    {% for reponse in reponses %}
+        <div>
+            <h2>
+                Question : {{ reponse.question.intitule }}
+            </h2>
+            <div>
+                Votre réponse:
+                {% if reponse.num_proposition == 1 %}
+                    {{ reponse.question.proposition1 }}
+                {% elif reponse.num_proposition == 2 %}
+                    {{ reponse.question.proposition2 }}
+                {% elif reponse.num_proposition == 3 %}
+                    {{ reponse.question.proposition3 }}
+                {% elif reponse.num_proposition == 4 %}
+                    {{ reponse.question.proposition4 }}
+                {% else %}
+                    Pas de réponse à cette question !
+                {% endif %}
+            </div>
+        </div>
+
+    {% endfor %}
+{% endblock %}

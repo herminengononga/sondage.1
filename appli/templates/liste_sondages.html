@@ -1,0 +1,29 @@
+{% extends 'TEMPLATE.html' %}
+{% block body %}
+    <h1>Nouveaux sondages actifs</h1>
+    <br>
+    {% for sondageAct in sondages_non_termines_non_repondus %}
+        <a href="{% url 'repondre_sondage' sondageAct.id 0 %}">
+            {{ sondageAct.titre }}
+        </a>
+    <br>
+    {% endfor %}
+
+    <h1>Sondages actifs auxquels vous avez déjà répondu</h1>
+    <br>
+    {% for sondageAct in sondages_non_termines_repondus %}
+        <a href="{% url 'repondre_sondage' sondageAct.id 0 %}">
+            {{ sondageAct.titre }}
+        </a>
+    <br>
+    {% endfor %}
+
+    <h1>Sondages terminés auxquels vous avec répondu</h1>
+    <br>
+    {% for sondageAct in sondages_termines_repondus %}
+        <a href="{% url 'mes_reponses' sondageAct.id %}">
+            {{ sondageAct.titre }}
+        </a>
+    <br>
+    {% endfor %}
+{% endblock %}
